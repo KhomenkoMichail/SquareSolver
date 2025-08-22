@@ -9,11 +9,12 @@ int solveSquare (double a, double b, double c,
 void getArguments (double *A, double *B, double *C);
 void announcementOfResults (int answers, double x1, double x2);
 void requestToContinue (int * flag);
+int isNull (double coefficient);
 int main (void) {
-    double a = 0, b = 0, c = 0;     //коэффициенты квадратного уравнения
-    char ch = 0;
-    double x1 = 0, x2 = 0;
-    int answers = 0; // колличество корней квадратного уравнения
+    double a = NAN, b = NAN, c = NAN;     //коэффициенты квадратного уравнения
+    char ch = NAN;
+    double x1 = NAN, x2 = NAN;
+    int answers = NAN; // колличество корней квадратного уравнения
     int keepSolving = 1;
     while (keepSolving) {
         introMessage();
@@ -61,13 +62,13 @@ double getDouble (void) {   //функция получения значения типа double
 int solveSquare (double a, double b, double c, double *x1, double *x2) { //функция решения заданного квадратного уравнения
     printf ("Полученное уравнение:\n");
     printf ("%gx^2+%gx+%g = 0\n", a, b, c);
-    double d = 0.0; //дискриминант квадратного уравнения
+    double d = NAN; //дискриминант квадратного уравнения
     double sqrt_d = 0.0;
-    if ((a == 0.0)&&(b == 0.0)&&(c ==0.0))
+    if ((isNull(a))&&(isNull(b))&&(isNull(c)))
         return -1; //бесконечное количество корней уравнения
-    else if ((a == 0.0)&&(b == 0.0))         //при с != 0
+    else if ((isNull(a))&&(isNull(b)))         //при с != 0
         return 0; //уравнение не имеет корней
-    else if (a == 0.0){         //при b != 0 и с != 0
+    else if (isNull(a)){         //при b != 0 и с != 0
         *x1 = -c/b;
         return 1; // уравнение имеет единственный корень
         }
@@ -75,7 +76,7 @@ int solveSquare (double a, double b, double c, double *x1, double *x2) { //функц
         d = b * b - 4 * a * c;      //вычисление дискриминанта
         if (d < 0)
             return 0;
-        else if (d == 0) {
+        else if (isNull(d)) {    //при  d == 0
             *x1 = -b/(2*a);
             return 1;
             }
@@ -99,6 +100,10 @@ void getArguments (double *A, double *B, double *C) {
     *C = getDouble();
 }
 void announcementOfResults (int answers, double x1, double x2){
+    if (isNull(x1))
+        x1 = fabs(x1);         //устранение x1 = -0
+    if (isNull(x2))
+        x2 = fabs(x2);         //устранение x2 = -0
     switch (answers)
     {
     case -1:
@@ -128,3 +133,11 @@ void requestToContinue (int *flag) {
         *flag = 0;
     else skip();
 }
+int isNull (double coefficient){
+    double fabs_of_coef = 0.0;
+    fabs_of_coef = fabs (coefficient);
+    if (fabs_of_coef < 1e-10)
+        return 1;
+    return 0;
+}
+
