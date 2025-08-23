@@ -8,7 +8,7 @@ double getDouble (void);
 void bufferCleaner (void);
 int solveSquare (double a, double b, double c,
                  double *x1, double *x2);
-int testSolveSquare (void);
+int testSolveSquare (int* flagToContinue);
 int solveLinear (double k, double b);
 void rootsInAscendingOrder (double* x1, double* x2);
 void getArguments (double *A, double *B, double *C);
@@ -23,7 +23,7 @@ int main (void) {
     double x1 = NAN, x2 = NAN;
     int nRoots = NAN; // колличество корней квадратного уравнения
     int keepSolving = 1;
-    testSolveSquare ();
+    testSolveSquare (&keepSolving);
     while (keepSolving) {
         introMessage();
         getArguments (&a, &b, &c);
@@ -76,6 +76,9 @@ double getDouble (void) { //функция получения значения типа double
 //-----------------------------------------------------------------------------
 
 int solveSquare (double a, double b, double c, double *x1, double *x2) { //функция решения заданного квадратного уравнения
+    *x1 = NAN;
+    *x2 = NAN;
+
     printf ("Полученное уравнение:\n");
     printf ("%gx^2+%gx+%g = 0\n", a, b, c);
 
@@ -229,7 +232,7 @@ void rootsInAscendingOrder (double* x1, double* x2) {
 
 //-----------------------------------------------------------------------------
 
-int testSolveSquare (void) {
+int testSolveSquare (int* flag) {
     const int argumentsNum = 3;
     const int testNum = 3;
 
@@ -250,7 +253,9 @@ int testSolveSquare (void) {
                                                {0, NAN, NAN}};
 
     for (int test = 0; test < testNum; test++) {
+
         nRoots = solveSquare(arg[test][0], arg[test][1], arg[test][2], &x1, &x2);
+
         if (!(nRoots == testSolutions[test].nAnswers &&
               compareDouble(x1, testSolutions[test].firstRoot) &&
               compareDouble(x2, testSolutions[test].secondRoot))) {
@@ -259,7 +264,10 @@ int testSolveSquare (void) {
                     nRoots, x1, x2);
             printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n",
                     testSolutions[test].nAnswers, testSolutions[test].firstRoot, testSolutions[test].secondRoot);
+            *flag = 0;
         }
+
+        else printf ("Решено верно!\n");
     }
 return 0;
 }
