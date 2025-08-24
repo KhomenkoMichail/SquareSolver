@@ -6,78 +6,72 @@
 void introMessage (void);
 double getDouble (void);
 void bufferCleaner (void);
-int solveSquare (struct structForArg arguments, struct structForRoots rootsPointers);
+void solveSquare (struct equation* quadratka);
 int testSolveSquare (int* flagToContinue);
 double solveLinear (double k, double b);
 void rootsInAscendingOrder (double* x1, double* x2);
-void getArguments (struct structForArg* pStructArg);
-void announcementOfResults (int answers, double x1, double x2);
+void getArguments (struct equation* quadratka);
+void announcementOfResults (struct equation quadratka);
 void requestToContinue (int * flag);
 int compareDouble (double first, double second);
 
-// Struct Quadratka {
-//   struct structForArg ; //24б
-//    structForRoots ; //24б
+//enum amountOfRoots {
+//    infinityRoots = -1,
+//    noRoots = 0,
+//    oneRoot = 1,
+//    twoRoots = 2,
+//    indefinityRoots = 5
+//
+//    //TODO:
 //}
-
 //InitQuadratka(){
-
-
-
-struct structForArg{
+struct structForArg {
             double a;
             double b;
             double c;
-        };
+};
 
 struct structForRoots {
-    double px1;
-    double px2;
+    double x1;
+    double x2;
     int nRoots;//TODO:
 };
 
-enum amountOfRoots {
-    infinityRoots = -1,
-    noRoots = 0,
-    oneRoot = 1,
-    twoRoots = 2,
-    indefinityRoots = 5
-
-    //TODO:
-}
+struct equation {
+    struct structForArg arguments;
+    struct structForRoots roots;
+};
 
 const int infinityRoots = -1;
 const int indefinityRoots = 5;
 
-
 int main (void) {
-    double x1 = NAN, x2 = NAN;
 
-    struct structForArg arguments = {
-        .a = NAN,
-        .b = NAN,
-        .c = NAN
+    struct equation quadratka = {
+        .arguments = {
+            .a = NAN,
+            .b = NAN,
+            .c = NAN
+        },
+        .roots = {
+            .x1 = NAN,
+            .x2 = NAN,
+            .nRoots = indefinityRoots
+        }
     };
-
-    struct structForRoots rootsPointers = {
-        &x1,
-        &x2,
-        nRoots =
-    };
-    //
 
     int keepSolving = 1;
     //testSolveSquare (&keepSolving);
     while (keepSolving) {
 
-        int nRoots = indefinityRoots; // колличество корней квадратного уравнения
-
         introMessage();
-        getArguments (&arguments);
 
-        nRoots = solveSquare (arguments, rootsPointers);
+        getArguments (&quadratka);
 
-        announcementOfResults (nRoots, x1, x2);
+        solveSquare (&quadratka);
+
+        announcementOfResults (quadratka);
+
         requestToContinue (&keepSolving);
     }
 
@@ -122,89 +116,92 @@ double getDouble (void) { //функция получения значения типа double
 
 //-----------------------------------------------------------------------------
 
-int solveSquare (struct structForArg arguments, struct structForRoots rootsPointers) { //функция решения заданного квадратного уравнения
-    assert (!(isnan(arguments.a) || isnan(arguments.b) || isnan (arguments.c)));
-    assert ((rootsPointers.px1) && (rootsPointers.px2));
+void solveSquare (struct equation* quadratka) { //функция решения заданного квадратного уравнения
+    assert (!(isnan(quadratka->arguments.a) || isnan(quadratka->arguments.b) || isnan (quadratka->arguments.c)));
+    assert (quadratka);
 
 
 
-    *rootsPointers.px1 = NAN;
-    *rootsPointers.px2 = NAN;
+    quadratka->roots.x1 = NAN;
+    quadratka->roots.x2 = NAN;
 
-    printf ("Полученное уравнение:\n");
-    printf ("%gx^2+%gx+%g = 0\n", arguments.a, arguments.b, arguments.c);
+
 
     double d = NAN; //дискриминант квадратного уравнения
     double sqrtD = NAN;
 
-    if (compareDouble(arguments.a, 0)) {
-        if (compareDouble(arguments.b, 0)) {
-            if (compareDouble(arguments.c, 0))
-                return infinityRoots;
-            else return 0;
+    if (compareDouble(quadratka->arguments.a, 0)) {
+        if (compareDouble(quadratka->arguments.b, 0)) {
+            if (compareDouble(quadratka->arguments.c, 0))
+                quadratka->roots.nRoots = infinityRoots;
+            else quadratka->roots.nRoots = 0;
         }
         else {
-            *rootsPointers.px1 = solveLinear(arguments.b, arguments.c);
-            return 1;
+            quadratka->roots.x1 = solveLinear(quadratka->arguments.b, quadratka->arguments.c);
+            quadratka->roots.nRoots = 1;
         }
     }
     else {
-        if (compareDouble(arguments.c, 0)) {      // при с == 0
-            if (compareDouble(arguments.b, 0)) {
-                *rootsPointers.px1 = 0;
-                return 1;
+        if (compareDouble(quadratka->arguments.c, 0)) {      // при с == 0
+            if (compareDouble(quadratka->arguments.b, 0)) {
+                quadratka->roots.x1 = 0;
+                quadratka->roots.nRoots = 1;
             }
             else {
-                *rootsPointers.px1 = 0;
-                *rootsPointers.px2 = solveLinear(arguments.a, arguments.b);
-                rootsInAscendingOrder (rootsPointers.px1, rootsPointers.px2);
-                return 2;
+                quadratka->roots.x1 = 0;
+                quadratka->roots.x2 = solveLinear(quadratka->arguments.a, quadratka->arguments.b);
+                rootsInAscendingOrder (&(quadratka->roots.x1), &(quadratka->roots.x2));
+                quadratka->roots.nRoots = 2;
             }
         }
 
         else {                    // при а != 0 и с != 0
-            d = arguments.b * arguments.b - 4 * arguments.a * arguments.c;      //вычисление дискриминанта
+            d = quadratka->arguments.b * quadratka->arguments.b - 4 * quadratka->arguments.a * quadratka->arguments.c;      //вычисление дискриминанта
 
             if (d < 0)
-                return 0;
+                quadratka->roots.nRoots = 0;
 
             else if (compareDouble(d, 0)) {    //при  d == 0
-                *rootsPointers.px1 = -arguments.b/(2*arguments.a);
-                return 1;
+                quadratka->roots.x1 = -quadratka->arguments.b/(2*quadratka->arguments.a);
+                quadratka->roots.nRoots = 1;
                 }
 
             else {   //при d > 0
                 sqrtD = sqrt(d);
-                *rootsPointers.px1 = (-arguments.b - sqrtD) / (2*arguments.a);
-                *rootsPointers.px2 = (-arguments.b + sqrtD) / (2*arguments.a);
-                rootsInAscendingOrder (rootsPointers.px1, rootsPointers.px2);
-                return 2;
+                quadratka->roots.x1 = (-quadratka->arguments.b - sqrtD) / (2*quadratka->arguments.a);
+                quadratka->roots.x2 = (-quadratka->arguments.b + sqrtD) / (2*quadratka->arguments.a);
+                rootsInAscendingOrder (&(quadratka->roots.x1), &(quadratka->roots.x2));
+                quadratka->roots.nRoots = 2;
             }
         }
     }
-    if (compareDouble(*rootsPointers.px1, 0))
-        *rootsPointers.px1 = fabs(*rootsPointers.px1);
+    if (compareDouble(quadratka->roots.x1, 0))
+        quadratka->roots.x1 = fabs(quadratka->roots.x1);
 
-    if (compareDouble(*rootsPointers.px2, 0))
-        *rootsPointers.px2 = fabs(*rootsPointers.px2);
+    if (compareDouble(quadratka->roots.x2, 0))
+        quadratka->roots.x2 = fabs(quadratka->roots.x2);
 }
 
 //-----------------------------------------------------------------------------
 
-void getArguments (struct structForArg* pStructArg) {
-    assert(pStructArg);
+void getArguments (struct equation* quadratka) {
+    assert(quadratka);
     printf("Введите численное значение коэффициента a:");
-    pStructArg->a = getDouble();
+    quadratka->arguments.a = getDouble();
     printf ("Введите численное значение коэффициента b:");
-    pStructArg->b = getDouble();
+    quadratka->arguments.b = getDouble();
     printf ("Введите численное значение коэффициента c:");
-    pStructArg->c = getDouble();
+    quadratka->arguments.c = getDouble();
 }
 
 //-----------------------------------------------------------------------------
 
-void announcementOfResults (int nRoots, double x1, double x2) {
-    switch (nRoots)
+void announcementOfResults (struct equation quadratka) {
+
+    printf ("Полученное уравнение:\n");
+    printf ("%gx^2+%gx+%g = 0\n", quadratka.arguments.a, quadratka.arguments.b, quadratka.arguments.c);
+
+    switch (quadratka.roots.nRoots)
     {
         case infinityRoots:
             printf ("Уравнение имеет бесконечное количество корней.\n");
@@ -215,13 +212,13 @@ void announcementOfResults (int nRoots, double x1, double x2) {
             break;
 
         case 1:
-            printf ("Уравнение имеет единственный корень x = %g\n", x1);
+            printf ("Уравнение имеет единственный корень x = %g\n", quadratka.roots.x1);
             break;
 
         case 2:
             printf ("Уравнение имеет два корня:\n");
-            printf ("x1 = %g\n", x1);
-            printf ("x2 = %g\n", x2);
+            printf ("x1 = %g\n", quadratka.roots.x1);
+            printf ("x2 = %g\n", quadratka.roots.x2);
             break;
 
         default:
