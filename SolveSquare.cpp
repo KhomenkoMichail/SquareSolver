@@ -7,7 +7,7 @@ void introMessage (void);
 double getDouble (void);
 void bufferCleaner (void);
 void solveSquare (struct equation* quadratka);
-int testSolveSquare (int* flagToContinue);
+void testSolveSquare (void);
 double solveLinear (double k, double b);
 void rootsInAscendingOrder (double* x1, double* x2);
 void getArguments (struct equation* quadratka);
@@ -15,15 +15,14 @@ void announcementOfResults (struct equation quadratka);
 void requestToContinue (int * flag);
 int compareDouble (double first, double second);
 
-//enum amountOfRoots {
-//    infinityRoots = -1,
-//    noRoots = 0,
-//    oneRoot = 1,
-//    twoRoots = 2,
-//    indefinityRoots = 5
-//
-//    //TODO:
-//}
+enum amountOfRoots {
+    infinityRoots = -1,
+    noRoots = 0,
+    oneRoot = 1,
+    twoRoots = 2,
+    indefinityRoots = 5
+};
+
 //InitQuadratka(){
 struct structForArg {
             double a;
@@ -34,16 +33,13 @@ struct structForArg {
 struct structForRoots {
     double x1;
     double x2;
-    int nRoots;//TODO:
+    enum amountOfRoots nRoots;
 };
 
 struct equation {
     struct structForArg arguments;
     struct structForRoots roots;
 };
-
-const int infinityRoots = -1;
-const int indefinityRoots = 5;
 
 int main (void) {
 
@@ -60,9 +56,12 @@ int main (void) {
         }
     };
 
+    testSolveSquare ();
+
     int keepSolving = 1;
-    //testSolveSquare (&keepSolving);
     while (keepSolving) {
+
+        //InitQuadr()
 
         introMessage();
 
@@ -120,13 +119,6 @@ void solveSquare (struct equation* quadratka) { //функция решения заданного квад
     assert (!(isnan(quadratka->arguments.a) || isnan(quadratka->arguments.b) || isnan (quadratka->arguments.c)));
     assert (quadratka);
 
-
-
-    quadratka->roots.x1 = NAN;
-    quadratka->roots.x2 = NAN;
-
-
-
     double d = NAN; //дискриминант квадратного уравнения
     double sqrtD = NAN;
 
@@ -134,24 +126,24 @@ void solveSquare (struct equation* quadratka) { //функция решения заданного квад
         if (compareDouble(quadratka->arguments.b, 0)) {
             if (compareDouble(quadratka->arguments.c, 0))
                 quadratka->roots.nRoots = infinityRoots;
-            else quadratka->roots.nRoots = 0;
+            else quadratka->roots.nRoots = noRoots;
         }
         else {
             quadratka->roots.x1 = solveLinear(quadratka->arguments.b, quadratka->arguments.c);
-            quadratka->roots.nRoots = 1;
+            quadratka->roots.nRoots = oneRoot;
         }
     }
     else {
         if (compareDouble(quadratka->arguments.c, 0)) {      // при с == 0
             if (compareDouble(quadratka->arguments.b, 0)) {
-                quadratka->roots.x1 = 0;
-                quadratka->roots.nRoots = 1;
+                quadratka->roots.x1 = noRoots;
+                quadratka->roots.nRoots = oneRoot;
             }
             else {
-                quadratka->roots.x1 = 0;
+                quadratka->roots.x1 = noRoots;
                 quadratka->roots.x2 = solveLinear(quadratka->arguments.a, quadratka->arguments.b);
                 rootsInAscendingOrder (&(quadratka->roots.x1), &(quadratka->roots.x2));
-                quadratka->roots.nRoots = 2;
+                quadratka->roots.nRoots = twoRoots;
             }
         }
 
@@ -159,11 +151,11 @@ void solveSquare (struct equation* quadratka) { //функция решения заданного квад
             d = quadratka->arguments.b * quadratka->arguments.b - 4 * quadratka->arguments.a * quadratka->arguments.c;      //вычисление дискриминанта
 
             if (d < 0)
-                quadratka->roots.nRoots = 0;
+                quadratka->roots.nRoots = noRoots;
 
             else if (compareDouble(d, 0)) {    //при  d == 0
                 quadratka->roots.x1 = -quadratka->arguments.b/(2*quadratka->arguments.a);
-                quadratka->roots.nRoots = 1;
+                quadratka->roots.nRoots = oneRoot;
                 }
 
             else {   //при d > 0
@@ -171,7 +163,7 @@ void solveSquare (struct equation* quadratka) { //функция решения заданного квад
                 quadratka->roots.x1 = (-quadratka->arguments.b - sqrtD) / (2*quadratka->arguments.a);
                 quadratka->roots.x2 = (-quadratka->arguments.b + sqrtD) / (2*quadratka->arguments.a);
                 rootsInAscendingOrder (&(quadratka->roots.x1), &(quadratka->roots.x2));
-                quadratka->roots.nRoots = 2;
+                quadratka->roots.nRoots = twoRoots;
             }
         }
     }
@@ -199,7 +191,7 @@ void getArguments (struct equation* quadratka) {
 void announcementOfResults (struct equation quadratka) {
 
     printf ("Полученное уравнение:\n");
-    printf ("%gx^2+%gx+%g = 0\n", quadratka.arguments.a, quadratka.arguments.b, quadratka.arguments.c);
+    printf ("%lgx^2%+lgx%+lg = 0\n", quadratka.arguments.a, quadratka.arguments.b, quadratka.arguments.c);
 
     switch (quadratka.roots.nRoots)
     {
@@ -207,18 +199,22 @@ void announcementOfResults (struct equation quadratka) {
             printf ("Уравнение имеет бесконечное количество корней.\n");
             break;
 
-        case 0:
+        case noRoots:
             printf ("Уравнение не имеет корней.\n");
             break;
 
-        case 1:
+        case oneRoot:
             printf ("Уравнение имеет единственный корень x = %g\n", quadratka.roots.x1);
             break;
 
-        case 2:
+        case twoRoots:
             printf ("Уравнение имеет два корня:\n");
             printf ("x1 = %g\n", quadratka.roots.x1);
             printf ("x2 = %g\n", quadratka.roots.x2);
+            break;
+
+        case indefinityRoots:
+            printf ("Ошибка! Попробуйте еще раз.\n");
             break;
 
         default:
@@ -283,59 +279,57 @@ void rootsInAscendingOrder (double* x1, double* x2) {
 
 //-----------------------------------------------------------------------------
 
-int testSolveSquare (int* flag) {
-    assert (flag);
-    const int argumentsNum = 3;   //колличество аргументов квадратного ур-я
+void testSolveSquare (void) {
     const int testNum = 10;       //колличество различных примеров
 
-    double x1 = NAN, x2 = NAN;
-    int nRoots = 0;
+    int failedTests = 0;
 
-    double arg[testNum][argumentsNum] = { {0, 0, 0},
-                                          {0, 2, 2},
-                                          {0, 0, 2},
-                                          {2, 2, 0},
-                                          {1, 0, -4},
-                                          {1, -5, 6},
-                                          {1, 2, 1},
-                                          {0, 2, 0},
-                                          {1, 1, 1},
-                                          {1, -3, 2} };
+    struct equation testingArguments [testNum] = {      //заданные уравнения
+      { {0, 0, 0}, {NAN, NAN, indefinityRoots} },
+      { {0, 2, 2}, {NAN, NAN, indefinityRoots} },
+      { {0, 0, 2}, {NAN, NAN, indefinityRoots} },
+      { {2, 2, 0}, {NAN, NAN, indefinityRoots} },
+      { {1, 0, -4},{NAN, NAN, indefinityRoots} },
+      { {1, -5, 6},{NAN, NAN, indefinityRoots} },
+      { {1, 2, 1}, {NAN, NAN, indefinityRoots} },
+      { {0, 2, 0}, {NAN, NAN, indefinityRoots} },
+      { {1, 1, 1}, {NAN, NAN, indefinityRoots} },
+      { {1, -3, 2},{NAN, NAN, indefinityRoots} }
+    };
+
     struct solution {
-        int nAnswers;
+        amountOfRoots nAnswers;
         double firstRoot;
         double secondRoot;
     };
 
-    struct solution testSolutions[testNum] = { {-1, NAN, NAN},   //ответы к заданным уравнениям
-                                               {1, -1, NAN},
-                                               {0, NAN, NAN},
-                                               {2, -1, 0},
-                                               {2, -2, 2},
-                                               {2, 2, 3},
-                                               {1, -1, NAN},
-                                               {1, 0, NAN},
-                                               {0, NAN, NAN},
-                                               {2, 1, 2} };
+    struct solution testSolutions[testNum] = { {infinityRoots, NAN, NAN},   //ответы к заданным уравнениям
+                                               {oneRoot, -1, NAN},
+                                               {noRoots, NAN, NAN},
+                                               {twoRoots, 0, -1},
+                                               {twoRoots, -2, 2},
+                                               {twoRoots, 2, 3},
+                                               {oneRoot, NAN, -1},
+                                               {oneRoot, 0, NAN},
+                                               {noRoots, NAN, NAN},
+                                               {twoRoots, 1, 2} };
 
     for (int test = 0; test < testNum; test++) {
 
-//        nRoots = solveSquare(arg[test][0], arg[test][1], arg[test][2], &x1, &x2);
+        solveSquare(&testingArguments[test]);
 
-        if (!(nRoots == testSolutions[test].nAnswers &&
-              compareDouble(x1, testSolutions[test].firstRoot) &&
-              compareDouble(x2, testSolutions[test].secondRoot))) {
+        if (!(testingArguments[test].roots.nRoots == testSolutions[test].nAnswers &&
+              (compareDouble(testingArguments[test].roots.x1, testSolutions[test].firstRoot) || compareDouble(testingArguments[test].roots.x1, testSolutions[test].secondRoot)) &&
+              (compareDouble(testingArguments[test].roots.x2, testSolutions[test].secondRoot) || compareDouble(testingArguments[test].roots.x2, testSolutions[test].firstRoot)))) {
 
             printf ("FAILED: solveSquare(%lg, %lg, %lg) --> nRoots = %d, x1 = %lg, x2 = %lg\n",
-                    arg[test][0], arg[test][1], arg[test][2],
-                    nRoots, x1, x2);
+                    testingArguments[test].arguments.a, testingArguments[test].arguments.b, testingArguments[test].arguments.c,
+                    testingArguments[test].roots.nRoots, testingArguments[test].roots.x1, testingArguments[test].roots.x2);
             printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n\n",
                     testSolutions[test].nAnswers, testSolutions[test].firstRoot, testSolutions[test].secondRoot);
 
-            *flag = 0;
+            failedTests++;
         }
-
-        else printf ("Решено верно!\n\n");
     }
-return 0;
+    printf ("Колличество непройденных тестов = %d\n", failedTests);
 }
