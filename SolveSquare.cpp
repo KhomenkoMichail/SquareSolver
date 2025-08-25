@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <TXLib.h>
 #include <math.h>
 #include <assert.h>
-
+#define SIZE_ARR 20
+//TODO: rus -> eng
 void introMessage (void);
 double getDouble (void);
 void bufferCleaner (void);
@@ -115,7 +115,9 @@ double getDouble (void) { //функция получения значения типа double
 //-----------------------------------------------------------------------------
 
 void solveSquare (struct equation* quadratka) { //функция решения заданного квадратного уравнения
-    assert (!(isnan(quadratka->arguments.a) || isnan(quadratka->arguments.b) || isnan (quadratka->arguments.c)));
+    assert (!(isnan(quadratka->arguments.a)));
+    assert (!(isnan(quadratka->arguments.b)));
+    assert (!(isnan(quadratka->arguments.c)));
     assert (quadratka);
 
     double d = NAN; //дискриминант квадратного уравнения
