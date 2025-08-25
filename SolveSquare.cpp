@@ -8,12 +8,17 @@ double getDouble (void);
 void bufferCleaner (void);
 void solveSquare (struct equation* quadratka);
 void testSolveSquare (void);
+void initQuadratka (struct equation* quadratka);
 double solveLinear (double k, double b);
 void rootsInAscendingOrder (double* x1, double* x2);
 void getArguments (struct equation* quadratka);
 void announcementOfResults (struct equation quadratka);
+void oneTestFromFile (struct equation* quadratka);
 void requestToContinue (int * flag);
 int compareDouble (double first, double second);
+int oneTest (struct equation* testingArguments, struct solution testSolutions);
+void initFileSolution (struct solution* fileSolution);
+void readFromFile(struct equation* quadratka, struct solution* fileSolution, FILE* file);
 
 enum amountOfRoots {
     infinityRoots = -1,
@@ -23,7 +28,6 @@ enum amountOfRoots {
     indefinityRoots = 5
 };
 
-//InitQuadratka(){
 struct structForArg {
             double a;
             double b;
@@ -41,27 +45,22 @@ struct equation {
     struct structForRoots roots;
 };
 
-int main (void) {
-
-    struct equation quadratka = {
-        .arguments = {
-            .a = NAN,
-            .b = NAN,
-            .c = NAN
-        },
-        .roots = {
-            .x1 = NAN,
-            .x2 = NAN,
-            .nRoots = indefinityRoots
-        }
+struct solution {
+        amountOfRoots nAnswers;
+        double firstRoot;
+        double secondRoot;
     };
 
+int main (void) {
+    struct equation quadratka;
+
+    oneTestFromFile(&quadratka);
     testSolveSquare ();
 
     int keepSolving = 1;
     while (keepSolving) {
 
-        //InitQuadr()
+        initQuadratka (&quadratka);
 
         introMessage();
 
@@ -280,56 +279,141 @@ void rootsInAscendingOrder (double* x1, double* x2) {
 //-----------------------------------------------------------------------------
 
 void testSolveSquare (void) {
-    const int testNum = 10;       //колличество различных примеров
+
 
     int failedTests = 0;
 
-    struct equation testingArguments [testNum] = {      //заданные уравнени€
-      { {0, 0, 0}, {NAN, NAN, indefinityRoots} },
-      { {0, 2, 2}, {NAN, NAN, indefinityRoots} },
-      { {0, 0, 2}, {NAN, NAN, indefinityRoots} },
-      { {2, 2, 0}, {NAN, NAN, indefinityRoots} },
-      { {1, 0, -4},{NAN, NAN, indefinityRoots} },
-      { {1, -5, 6},{NAN, NAN, indefinityRoots} },
-      { {1, 2, 1}, {NAN, NAN, indefinityRoots} },
-      { {0, 2, 0}, {NAN, NAN, indefinityRoots} },
-      { {1, 1, 1}, {NAN, NAN, indefinityRoots} },
-      { {1, -3, 2},{NAN, NAN, indefinityRoots} }
+    struct equation testingArguments [] = {      //заданные уравнени€
+      { { 0,  0,  0 }, { NAN, NAN, indefinityRoots } },
+      { { 0,  2,  2 }, { NAN, NAN, indefinityRoots } },
+      { { 0,  0,  2 }, { NAN, NAN, indefinityRoots } },
+      { { 2,  2,  0 }, { NAN, NAN, indefinityRoots } },
+      { { 1,  0, -4 }, { NAN, NAN, indefinityRoots } },
+      { { 1, -5,  6 }, { NAN, NAN, indefinityRoots } },
+      { { 1,  2,  1 }, { NAN, NAN, indefinityRoots } },
+      { { 0,  2,  0 }, { NAN, NAN, indefinityRoots } },
+      { { 1,  1,  1 }, { NAN, NAN, indefinityRoots } },
+      { { 1, -3,  2 }, { NAN, NAN, indefinityRoots } }
     };
 
-    struct solution {
-        amountOfRoots nAnswers;
-        double firstRoot;
-        double secondRoot;
+    int testNum = sizeof (testingArguments) / sizeof (testingArguments[0]);
+
+    struct solution testSolutions[] = { { infinityRoots, NAN, NAN },   //ответы к заданным уравнени€м
+                                              { oneRoot,  -1, NAN },
+                                              { noRoots, NAN, NAN },
+                                              { twoRoots,  -1,  0 },
+                                              { twoRoots, -2,   2 },
+                                              { twoRoots,  2,   3 },
+                                              { oneRoot, NAN,  -1 },
+                                              { oneRoot,   0, NAN },
+                                              { noRoots, NAN, NAN },
+                                              { twoRoots,  1,   2 } };
+
+    for (int test = 0; test < testNum; test++)
+            failedTests += oneTest (&testingArguments[test], testSolutions[test]);
+
+    printf (" олличество непройденных тестов из программы = %d\n", failedTests);
+}
+
+//-----------------------------------------------------------------------------
+void initQuadratka (struct equation* quadratka) {
+    *quadratka = {
+        .arguments = {
+            .a = NAN,
+            .b = NAN,
+            .c = NAN
+        },
+        .roots = {
+            .x1 = NAN,
+            .x2 = NAN,
+            .nRoots = indefinityRoots
+        }
     };
+}
 
-    struct solution testSolutions[testNum] = { {infinityRoots, NAN, NAN},   //ответы к заданным уравнени€м
-                                               {oneRoot, -1, NAN},
-                                               {noRoots, NAN, NAN},
-                                               {twoRoots, 0, -1},
-                                               {twoRoots, -2, 2},
-                                               {twoRoots, 2, 3},
-                                               {oneRoot, NAN, -1},
-                                               {oneRoot, 0, NAN},
-                                               {noRoots, NAN, NAN},
-                                               {twoRoots, 1, 2} };
+//-----------------------------------------------------------------------------
 
-    for (int test = 0; test < testNum; test++) {
+void oneTestFromFile (struct equation* quadratka) {
+    int failedFileTests = 0;
+    initQuadratka (quadratka);
 
-        solveSquare(&testingArguments[test]);
+    struct solution fileSolution;
+    initFileSolution (&fileSolution);
 
-        if (!(testingArguments[test].roots.nRoots == testSolutions[test].nAnswers &&
-              (compareDouble(testingArguments[test].roots.x1, testSolutions[test].firstRoot) || compareDouble(testingArguments[test].roots.x1, testSolutions[test].secondRoot)) &&
-              (compareDouble(testingArguments[test].roots.x2, testSolutions[test].secondRoot) || compareDouble(testingArguments[test].roots.x2, testSolutions[test].firstRoot)))) {
+    FILE* file = fopen("tests.txt", "r");
+
+    if (file!= NULL) {
+            readFromFile(quadratka, &fileSolution, file);
+            failedFileTests += oneTest(quadratka, fileSolution);
+
+            initFileSolution (&fileSolution);
+            initQuadratka (quadratka);
+
+    printf(" олличество непройденных тестов из файла = %d\n", failedFileTests);
+    }
+    else printf("ќшибка открыти€ файла!\n");
+}
+
+//-----------------------------------------------------------------------------
+
+int oneTest (struct equation* testingArguments, struct solution testSolutions) {
+
+        solveSquare(testingArguments);
+
+        if (!(testingArguments->roots.nRoots == testSolutions.nAnswers &&
+              (compareDouble(testingArguments->roots.x1, testSolutions.firstRoot) || compareDouble(testingArguments->roots.x1, testSolutions.secondRoot)) &&
+              (compareDouble(testingArguments->roots.x2, testSolutions.secondRoot) || compareDouble(testingArguments->roots.x2, testSolutions.firstRoot)))) {
 
             printf ("FAILED: solveSquare(%lg, %lg, %lg) --> nRoots = %d, x1 = %lg, x2 = %lg\n",
-                    testingArguments[test].arguments.a, testingArguments[test].arguments.b, testingArguments[test].arguments.c,
-                    testingArguments[test].roots.nRoots, testingArguments[test].roots.x1, testingArguments[test].roots.x2);
+                    testingArguments->arguments.a, testingArguments->arguments.b, testingArguments->arguments.c,
+                    testingArguments->roots.nRoots, testingArguments->roots.x1, testingArguments->roots.x2);
             printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n\n",
-                    testSolutions[test].nAnswers, testSolutions[test].firstRoot, testSolutions[test].secondRoot);
+                    testSolutions.nAnswers, testSolutions.firstRoot, testSolutions.secondRoot);
+            return 1;
+        }
+        return 0;
+}
 
-            failedTests++;
+//-----------------------------------------------------------------------------
+void initFileSolution (struct solution* fileSolution) {
+    *fileSolution = { .nAnswers = indefinityRoots,
+                      .firstRoot = NAN,
+                      .secondRoot = NAN };
+}
+
+//-----------------------------------------------------------------------------
+
+void readFromFile(struct equation* quadratka, struct solution* fileSolution, FILE* file) {
+    while (fscanf (file, "%lf", &(quadratka->arguments.a)) == 1) {
+        fscanf (file, "%lf", &(quadratka->arguments.b));
+        fscanf (file, "%lf", &(quadratka->arguments.c));
+        fscanf (file, "%d",  (int*) &fileSolution->nAnswers);
+        switch (fileSolution->nAnswers)
+        {
+            case oneRoot:
+                fscanf (file, "%lf", &fileSolution->firstRoot);
+                fileSolution->secondRoot = NAN;
+                break;
+            case twoRoots:
+                fscanf (file, "%lf", &fileSolution->firstRoot);
+                fscanf (file, "%lf", &fileSolution->secondRoot);
+                break;
+            case infinityRoots:
+                fileSolution->firstRoot = NAN;
+                fileSolution->secondRoot = NAN;
+                break;
+            case noRoots:
+                fileSolution->firstRoot = NAN;
+                fileSolution->secondRoot = NAN;
+                break;
+            case indefinityRoots:
+                fileSolution->firstRoot = NAN;
+                fileSolution->secondRoot = NAN;
+                break;
+            default:
+                fileSolution->firstRoot = NAN;
+                fileSolution->secondRoot = NAN;
+                break;
         }
     }
-    printf (" олличество непройденных тестов = %d\n", failedTests);
 }
