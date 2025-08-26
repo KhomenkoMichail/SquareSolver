@@ -1,0 +1,18 @@
+helpingFunctions.o: helpingFunctions.cpp
+	g++ -c helpingFunctions.cpp
+inputFunctions.o: inputFunctions.cpp
+	g++ -c inputFunctions.cpp
+solvingFunctions.o: solvingFunctions.cpp
+	g++ -c solvingFunctions.cpp
+interfaceFunctions.o: interfaceFunctions.cpp
+	g++ -c interfaceFunctions.cpp
+main.o: main.cpp
+	g++ -c main.cpp
+testingFunctions.o: testingFunctions.cpp
+	g++ -c testingFunctions.cpp
+SolveSquare.exe: helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o
+	g++ helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o -o SolveSquare
+clean:
+	rm helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o
+run: SolveSquare.exe
+	./SolveSquare.exe

@@ -1,0 +1,903 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0xA30 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B20B0 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E60 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:40:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:40:18
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x6698 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B207D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:42:50, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:42:54
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x309C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B207D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:45:40, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:45:44
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x2948 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B2057 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:47:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:47:34
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x934 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B2057 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:48:28, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:48:32
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x1D5C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B2075 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:51:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:51:34
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x2148 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:54:28, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:54:32
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x9F8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:55:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:55:48
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x86C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:56:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:57:02
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x3AC4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:56:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:57:47
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x6298 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 17:59:36, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 17:59:40
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x5600 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BD8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:08:11, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:08:15
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x51F4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BD8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:09:23, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:09:26
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x5F40 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:13:20, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:13:24
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x67C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:13:20, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:14:07
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x16A0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:14:50, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:14:54
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x5330 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209B in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:15:19, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:15:23
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x6E3C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B20A3 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:17:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:17:36
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x4D60 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209E in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:18:03, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:18:06
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0x4A18 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209E in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:18:53, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:18:57
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Admin\Desktop\Prata\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x006DE85C (32-bit), Flags: Cmdre0, Thread: 0xB2C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0049F0DE in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: (anonymous namespace)::TX::_txOnSignal()
+# 1 0x76028F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x7602D3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76029D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+# 4 0x00458BA5 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: solveSquare()
+# 5 0x004B19B8 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: oneTest()
+# 6 0x004B209E in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: readFromBufferAndTest()
+# 7 0x004B1E2D in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: testFromFileByBuffer()
+# 8 0x00494053 in C:\Users\Admin\Desktop\Prata\SolveSquare.exe: main()
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\admin\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 26 2025 18:21:28, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 26 2025 18:22:37
+
+Run file:	C:\Users\Admin\Desktop\Prata\SolveSquare.exe
+Directory:	C:\Users\Admin\Desktop\Prata
+
+--------------------------------------------------

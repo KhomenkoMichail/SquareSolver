@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+#include <assert.h>
+
+//TODO: rus -> eng
+
+int main (void) {
+    struct equation quadratka;
+
+    oneTestFromFile(&quadratka);
+    testSolveSquare ();
+
+    int keepSolving = 1;
+    while (keepSolving) {
+
+        initQuadratka (&quadratka);
+
+        introMessage();
+
+        getArguments (&quadratka);
+
+        solveSquare (&quadratka);
+
+        announcementOfResults (quadratka);
+
+        requestToContinue (&keepSolving);
+    }
+
+    printf ("Программа завершена!\n");
+    return 0;
+}
+
