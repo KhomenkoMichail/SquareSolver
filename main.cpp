@@ -1,10 +1,11 @@
- /*!
- \file
-
- */
+/*!
+    \file
+    \brief Main file
+*/
 
 #include <TXLib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <assert.h>
 
@@ -15,7 +16,6 @@
 #include "interfaceFunctions.h"
 #include "inputFunctions.h"
 #include "structsAndEnum.h"
-//TODO: rus -> eng
 
 int main (void) {
     struct equation quadratka;

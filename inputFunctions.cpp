@@ -2,10 +2,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-
 #include "structsAndEnum.h"
 #include "inputFunctions.h"
-
 
 void getArguments (struct equation* quadratka) {
     assert(quadratka);

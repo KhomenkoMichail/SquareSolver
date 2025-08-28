@@ -1,5 +1,7 @@
 #include <TXLib.h>
 #include <stdio.h>
+
+#include "helpingFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
 
@@ -14,6 +16,12 @@ int compareDouble (double first, double second) {
         return 1;
 
     else if (isnan(first) || isnan(second))  //только один nan
+        return 0;
+
+    else if (isinf(first) && isinf(second))      //оба inf
+        return 1;
+
+    else if (isinf(first) || isinf(second))  //только один inf
         return 0;
 
     else {

@@ -19,7 +19,7 @@ void announcementOfResults (struct equation quadratka) {
     switch (quadratka.roots.nRoots)
     {
         case infinityRoots:
-            printf ("This equation has an infinite number of roots..\n");
+            printf ("This equation has an infinite number of roots.\n");
             break;
 
         case noRoots:
