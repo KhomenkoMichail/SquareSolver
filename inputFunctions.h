@@ -9,10 +9,10 @@
 /*!
     \brief Gets arguments for quadratic equation.
     \details Makes request for getting arguments a, b and c and gets them.
-    \param quadrarka - a pointer to a structure for initialization.
+    \param quadratic - a pointer to a structure for initialization.
     \return Return nothing.
 */
-void getArguments (struct equation* quadratka);
+void getArguments (struct equation* quadratic);
 
 /*!
     \brief Gets double data.

@@ -1,6 +1,8 @@
 #include <TXLib.h>
 #include <stdio.h>
+#include <assert.h>
 
+#include "colors.h"
 #include "testingFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
@@ -38,51 +40,64 @@ void testSolveSquare (void) {
     for (int test = 0; test < testNum; test++)
             failedTests += oneTest (&testingArguments[test], testSolutions[test]);
 
-    printf ("Number of failed program tests  = %d\n", failedTests);
+    printf ("%sNumber of failed program tests  = %d%s\n\n", BLUE, failedTests, RESET);
 }
+
 int oneTest (struct equation* testingArguments, struct solution testSolutions) {
+        assert(testingArguments);
 
         solveSquare(testingArguments);
 
         if (!(testingArguments->roots.nRoots == testSolutions.nAnswers &&
               (compareDouble(testingArguments->roots.x1, testSolutions.firstRoot) || compareDouble(testingArguments->roots.x1, testSolutions.secondRoot)) &&
               (compareDouble(testingArguments->roots.x2, testSolutions.secondRoot) || compareDouble(testingArguments->roots.x2, testSolutions.firstRoot)))) {
-
-            printf ("FAILED: solveSquare(%lg, %lg, %lg) --> nRoots = %d, x1 = %lg, x2 = %lg\n",
+            printf ("%sFAILED: solveSquare(%lg, %lg, %lg) --> nRoots = %d, x1 = %lg, x2 = %lg\n", RED,
                     testingArguments->arguments.a, testingArguments->arguments.b, testingArguments->arguments.c,
                     testingArguments->roots.nRoots, testingArguments->roots.x1, testingArguments->roots.x2);
-            printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n\n",
-                    testSolutions.nAnswers, testSolutions.firstRoot, testSolutions.secondRoot);
+            printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n\n%s",
+                    testSolutions.nAnswers, testSolutions.firstRoot, testSolutions.secondRoot, RESET);
             return 1;
         }
         return 0;
 }
 
-void testsFromFile (struct equation* quadratka) {
+void testsFromFile (struct equation* quadratic) {
+    assert(quadratic);
+
     int failedFileTests = 0;
-    initQuadratka (quadratka);
+
+    initQuadratic (quadratic);
 
     struct solution fileSolution;
     initFileSolution (&fileSolution);
 
-    FILE* file = fopen("tests.txt", "r");
-
+    FILE* file = fopen("tests.txt", "rb");
     if (file!= NULL) {
-            failedFileTests = readFromFileAndTest(quadratka, &fileSolution, file);
-    printf("Number of failed file tests = %d\n", failedFileTests);
+        failedFileTests = readFromFileAndTest(quadratic, &fileSolution, file);
+        printf("%sNumber of failed file tests = %d\n%s", BLUE, failedFileTests, RESET);
+        if (fclose(file) != 0)
+            printf("%sError: the file was not closed! Check the file tests.txt\n%s", RED, RESET);
     }
-    else printf("Error: the file was not opened!\n");
+    else printf("%sError: the file was not opened! Check the file tests.txt\n%s", RED, RESET);
 }
+
 void initFileSolution (struct solution* fileSolution) {
+    assert(fileSolution);
+
     *fileSolution = { .nAnswers = indefinityRoots,
                       .firstRoot = NAN,
                       .secondRoot = NAN };
 }
-int readFromFileAndTest(struct equation* quadratka, struct solution* fileSolution, FILE* file) {
+
+int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolution, FILE* file) {
+    assert(quadratic);
+    assert(fileSolution);
+    assert(file);
+
     int failedFileTests = 0;
-    while (fscanf (file, "%lf", &(quadratka->arguments.a)) == 1) {
-        fscanf (file, "%lf", &(quadratka->arguments.b));
-        fscanf (file, "%lf", &(quadratka->arguments.c));
+    while (fscanf (file, "%lf", &(quadratic->arguments.a)) == 1) {
+        fscanf (file, "%lf", &(quadratic->arguments.b));
+        fscanf (file, "%lf", &(quadratic->arguments.c));
         fscanf (file, "%d",  (int*) &fileSolution->nAnswers);
         switch (fileSolution->nAnswers)
         {
@@ -111,49 +126,58 @@ int readFromFileAndTest(struct equation* quadratka, struct solution* fileSolutio
                 fileSolution->secondRoot = NAN;
                 break;
         }
-        failedFileTests += oneTest(quadratka, *fileSolution);
+        failedFileTests += oneTest(quadratic, *fileSolution);
         initFileSolution (fileSolution);
-        initQuadratka (quadratka);
+        initQuadratic (quadratic);
     }
 return failedFileTests;
 }
-void testFromFileByBuffer (struct equation* quadratka) {
+void testFromFileByBuffer (struct equation* quadratic) {
+    assert(quadratic);
+
     int failedFileTests = 0;
-    initQuadratka (quadratka);
+    initQuadratic (quadratic);
 
     struct solution fileSolution;
     initFileSolution (&fileSolution);
 
     FILE* file = fopen("tests.txt", "r");
-    if  (file == NULL)
+    if  (file == NULL) {
+        printf("%sError: the file was not opened! Check the file tests.txt\n%s", RED, RESET);
         return;
+    }
 
     fseek(file, 0L, SEEK_END);
     long lengthOfFile = ftell(file);
     fseek(file, 0L, SEEK_SET);
 
-    char* fileBuffer = (char*)calloc(lengthOfFile, sizeof(char)); //calloc
-    fread(fileBuffer, sizeof(char), lengthOfFile, file);//read
+    char* fileBuffer = (char*)calloc(lengthOfFile, sizeof(char));
+    fread(fileBuffer, sizeof(char), lengthOfFile, file);
 
-    failedFileTests = readFromBufferAndTest(quadratka, &fileSolution, fileBuffer);
-    printf("Number of failed fileBuffer tests = %d\n", failedFileTests);
-
+    failedFileTests = readFromBufferAndTest(quadratic, &fileSolution, fileBuffer);
+    free (fileBuffer);
+    printf("%sNumber of failed fileBuffer tests = %d\n%s", BLUE, failedFileTests, RESET);
+    if (fclose(file) != 0)
+        printf("%sError: the file was not closed! Check the file tests.txt\n%s", RED, RESET);
 }
-int readFromBufferAndTest(struct equation* quadratka, struct solution* fileSolution, char* fileBuffer) {
+int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer) {
+    assert(quadratic);
+    assert(fileSolution);
+    assert(fileBuffer);
+
     int failedFileTests = 0;
     int fileOffset = 0;
     int scannedSymbols = 0;
     int errorSscanf = 0;
 
     while (1) {
-
-        if (sscanf (fileBuffer+fileOffset, "%lf %n", &(quadratka->arguments.a), &scannedSymbols) != 1)
+        if (sscanf (fileBuffer+fileOffset, "%lf %n", &(quadratic->arguments.a), &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;
-        if (sscanf (fileBuffer+fileOffset, "%lf %n" , &(quadratka->arguments.b), &scannedSymbols) != 1)
+        if (sscanf (fileBuffer+fileOffset, "%lf %n" , &(quadratic->arguments.b), &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;
-        if (sscanf (fileBuffer+fileOffset, "%lf %n", &(quadratka->arguments.c), &scannedSymbols) != 1)
+        if (sscanf (fileBuffer+fileOffset, "%lf %n", &(quadratic->arguments.c), &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;
         if (sscanf (fileBuffer+fileOffset, "%d %n",  (int*) &fileSolution->nAnswers, &scannedSymbols) != 1)
@@ -185,12 +209,12 @@ int readFromBufferAndTest(struct equation* quadratka, struct solution* fileSolut
                 break;
         }
         if (errorSscanf) {
-            initQuadratka (quadratka);
+            initQuadratic (quadratic);
             break;
         }
-        failedFileTests += oneTest(quadratka, *fileSolution);
+        failedFileTests += oneTest(quadratic, *fileSolution);
         initFileSolution (fileSolution);
-        initQuadratka (quadratka);
+        initQuadratic (quadratic);
     }
     return failedFileTests;
 }

@@ -1,9 +1,12 @@
 #include <TXLib.h>
 #include <stdio.h>
+#include <assert.h>
 
 #include "helpingFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
+
+const double EPSILON = 1e-10;
 
 void bufferCleaner (void) { //функция пропуска входных данных
     int ch = 0;
@@ -14,28 +17,21 @@ void bufferCleaner (void) { //функция пропуска входных д�
 int compareDouble (double first, double second) {
     if (isnan(first) && isnan(second))      //оба nan
         return 1;
-
-    else if (isnan(first) || isnan(second))  //только один nan
-        return 0;
-
     else if (isinf(first) && isinf(second))      //оба inf
         return 1;
-
-    else if (isinf(first) || isinf(second))  //только один inf
-        return 0;
-
     else {
         double fabsOfDifference = NAN;
         fabsOfDifference = fabs(first - second);
 
-        if (fabsOfDifference < 1e-10)
+        if (fabsOfDifference < EPSILON)
             return 1;
         return 0;
     }
 }
 
-void initQuadratka (struct equation* quadratka) {
-    *quadratka = {
+void initQuadratic (struct equation* quadratic) {
+    assert(quadratic);
+    *quadratic = {
         .arguments = {
             .a = NAN,
             .b = NAN,
@@ -47,4 +43,10 @@ void initQuadratka (struct equation* quadratka) {
             .nRoots = indefinityRoots
         }
     };
+}
+
+int isDouble (double x) {
+    if (isnan(x) || isinf(x))
+        return 0;
+    return 1;
 }

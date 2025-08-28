@@ -38,9 +38,16 @@ int compareDouble (double first, double second);
             .nRoots = indefinityRoots
         }
     \endcode
-    \param quadrarka - a pointer to a structure for initialization
+    \param quadratic - a pointer to a structure for initialization
     \return Returns nothing.
 */
-void initQuadratka (struct equation* quadratka);
+void initQuadratic (struct equation* quadratic);
+
+/*!
+    \brief Determines whether a number is double.
+    \param x - the number that needs to be checked
+    \return Returns 0 if the number is NAN or INF, else returns 1.
+*/
+int isDouble (double x);
 
 #endif

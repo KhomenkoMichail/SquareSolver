@@ -15,10 +15,10 @@ void introMessage (void);
 
 /*!
     \brief Announces results of solving quadratic equation.
-    \param quadratka - equation structure which results should be announced.
+    \param quadratic - equation structure which results should be announced.
     \return Returns nothing.
 */
-void announcementOfResults (struct equation quadratka);
+void announcementOfResults (struct equation quadratic);
 
 /*!
     \brief Makes request to continue solving quadratic equations.

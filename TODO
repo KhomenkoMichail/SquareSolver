@@ -1,0 +1,23 @@
+1. - 1e-10 -> const EPSILON
+2. - else if with one nan or one inf - huynya do only 2 nan 2 inf and comapre
+3. - Add flags from guide to makefile, script
+4. - Naming RusEng to EngEng rewrite
+5. - File-> fopen ... fclose
+6. - calloc malloc -> free()
+7. - is_double assrt -> assert(isdouble)
+8. - All std functions with return value must be checked for error code returned and write message!
+9. - Add colors in output, escape sequences printf("\033... MYTEXT \033...")
+10.
+------очистка терминала. гитхаб
+
+комеенты на АНГЛИЙСКОМ
+
+FileDynamicBuffer
+ScanFile
+Integrated
+
+Passed:
+
+isnan()
+
+assert()

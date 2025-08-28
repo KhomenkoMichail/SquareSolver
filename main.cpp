@@ -2,14 +2,12 @@
     \file
     \brief Main file
 */
-
-#include <TXLib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
 
-
+#include "colors.h"
 #include "testingFunctions.h"
 #include "helpingFunctions.h"
 #include "solvingFunctions.h"
@@ -18,30 +16,29 @@
 #include "structsAndEnum.h"
 
 int main (void) {
-    struct equation quadratka;
+    struct equation quadratic;
 
-    testFromFileByBuffer(&quadratka);
-    testsFromFile(&quadratka);
+    testFromFileByBuffer (&quadratic);
+    testsFromFile (&quadratic);
     testSolveSquare ();
-
 
     int keepSolving = 1;
     while (keepSolving) {
 
-        initQuadratka (&quadratka);
+        initQuadratic (&quadratic);
 
-        introMessage();
+        introMessage ();
 
-        getArguments (&quadratka);
+        getArguments (&quadratic);
 
-        solveSquare (&quadratka);
+        solveSquare (&quadratic);
 
-        announcementOfResults (quadratka);
+        announcementOfResults (quadratic);
 
         requestToContinue (&keepSolving);
     }
 
-    printf ("The program ended!\n");
+    printf ("%sThe program ended!%s\n",MAGENTA, RESET);
     return 0;
 }
 

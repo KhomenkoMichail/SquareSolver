@@ -29,10 +29,10 @@ int oneTest (struct equation* testingArguments, struct solution testSolutions);
     \details Reads the arguments of a quadratic equation and its solutions from a .txt file.
     Calls the function "solveSquare" and compares its answers with answers from file.
     Outputs erroneous tests and their number.
-    \param quadratka - a pointer to the equation structure which is filled with arguments from the file.
+    \param quadratic - a pointer to the equation structure which is filled with arguments from the file.
     \return Returns nothing.
 */
-void testsFromFile (struct equation* quadratka);
+void testsFromFile (struct equation* quadratic);
 
 /*!
     \brief Clears the solution structure.
@@ -50,25 +50,25 @@ void initFileSolution (struct solution* fileSolution);
 /*!
     \brief Reads arguments of the quadratic equation and answers for it from
     the opened txt. file and test function "solveSquare".
-    \param quadratka - a pointer to the equation structure which is filled with
+    \param quadratic - a pointer to the equation structure which is filled with
     arguments from the file and passed to the function "solveSquare".
     \param fileSolution - a pointer to the solution structure which is filled with
     answers from the file and compares with answers from the function "solveSquare".
     \return Returns a number of failed tests.
 */
-int readFromFileAndTest(struct equation* quadratka, struct solution* fileSolution, FILE* file);
+int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolution, FILE* file);
 
 /*!
     \brief Reads arguments of a quadratic equation and answers to it from the string.
     Then compares these answers with answers from the function "solveSquare".
-    \param quadratka - a pointer to the equation structure, which is filled with
+    \param quadratic - a pointer to the equation structure, which is filled with
     arguments from the string and passed to the function "solveSquare".
     \param fileSolution - a pointer to the solution structure which is filled with
     answers from the string and compares with answers from the function "solveSquare".
     \param fileBuffer - a pointer to the string, which contains equation arguments and answers.
     \return Returns a number of failed tests.
 */
-int readFromBufferAndTest(struct equation* quadratka, struct solution* fileSolution, char* fileBuffer);
+int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer);
 
 /*!
     \brief Tests function "solveSquare".
@@ -76,10 +76,10 @@ int readFromBufferAndTest(struct equation* quadratka, struct solution* fileSolut
     of a quadratic equation and answers to it from this string.
     Then compares these answers with answers from the function "solveSquare".
     Outputs erroneous tests and their number.
-    \param quadratka - a pointer to the equation structure which is filled with
+    \param quadratic - a pointer to the equation structure which is filled with
     arguments from the file and passed to the function "solveSquare".
     \return Returns nothing.
 */
-void testFromFileByBuffer (struct equation* quadratka);
+void testFromFileByBuffer (struct equation* quadratic);
 
 #endif

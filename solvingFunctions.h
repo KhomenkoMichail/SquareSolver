@@ -9,10 +9,10 @@
 /*!
     \brief Solves the quadratic equation.
     \details Accepts an equation structure with the specified arguments and adds answers to it.
-    \param quadratka - a pointer to equation structure with specified argument.
+    \param quadratic - a pointer to equation structure with specified argument.
     \return Returns nothing.
 */
-void solveSquare (struct equation* quadratka);
+void solveSquare (struct equation* quadratic);
 
 /*!
     \brief Solves the linear equation.
