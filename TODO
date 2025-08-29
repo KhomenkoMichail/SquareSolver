@@ -10,14 +10,14 @@
 10.
 ------очистка терминала. гитхаб
 
-комеенты на АНГЛИЙСКОМ
+- комеенты на АНГЛИЙСКОМ
 
-FileDynamicBuffer
-ScanFile
-Integrated
+- FileDynamicBuffer
+- ScanFile
+- Integrated
 
-Passed:
+- Passed:
 
-isnan()
+- isnan()
 
-assert()
+- assert()

@@ -1,19 +1,20 @@
 #include <TXLib.h>
 #include <stdio.h>
 #include <math.h>
-#include <assert.h>
 
+#include "colors.h"
+#include "myassert.h"
 #include "solvingFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
 
-void solveSquare (struct equation* quadratic) { //функция решения заданного квадратного уравнения
-    assert (isDouble(quadratic->arguments.a));
-    assert (isDouble(quadratic->arguments.b));
-    assert (isDouble(quadratic->arguments.c));
-    assert (quadratic);
+void solveSquare (struct equation* quadratic) {
+    MYASSERT (isDouble(quadratic->arguments.a));
+    MYASSERT (isDouble(quadratic->arguments.b));
+    MYASSERT (isDouble(quadratic->arguments.c));
+    MYASSERT (quadratic);
 
-    double d = NAN; //дискриминант квадратного уравнения
+    double d = NAN; //the discriminant of the quadratic equation
     double sqrtD = NAN;
     if (compareDouble(quadratic->arguments.a, 0)) {
         if (compareDouble(quadratic->arguments.b, 0)) {
@@ -27,7 +28,7 @@ void solveSquare (struct equation* quadratic) { //функция решения 
         }
     }
     else {
-        if (compareDouble(quadratic->arguments.c, 0)) {      // при с == 0
+        if (compareDouble(quadratic->arguments.c, 0)) {      // if с == 0
             if (compareDouble(quadratic->arguments.b, 0)) {
                 quadratic->roots.x1 = noRoots;
                 quadratic->roots.nRoots = oneRoot;
@@ -40,18 +41,18 @@ void solveSquare (struct equation* quadratic) { //функция решения 
             }
         }
 
-        else {                    // при а != 0 и с != 0
+        else {                    // if а != 0 and с != 0
             d = quadratic->arguments.b * quadratic->arguments.b - 4 * quadratic->arguments.a * quadratic->arguments.c;      //вычисление дискриминанта
 
             if (d < 0)
                 quadratic->roots.nRoots = noRoots;
 
-            else if (compareDouble(d, 0)) {    //при  d == 0
+            else if (compareDouble(d, 0)) {    //if  d == 0
                 quadratic->roots.x1 = -quadratic->arguments.b/(2*quadratic->arguments.a);
                 quadratic->roots.nRoots = oneRoot;
                 }
 
-            else {   //при d > 0
+            else {   //if d > 0
                 sqrtD = sqrt(d);
                 quadratic->roots.x1 = (-quadratic->arguments.b - sqrtD) / (2*quadratic->arguments.a);
                 quadratic->roots.x2 = (-quadratic->arguments.b + sqrtD) / (2*quadratic->arguments.a);
@@ -68,8 +69,8 @@ void solveSquare (struct equation* quadratic) { //функция решения 
 }
 
 double solveLinear (double k, double b) {
-    assert(isDouble(k));
-    assert(isDouble(b));
+    MYASSERT(isDouble(k));
+    MYASSERT(isDouble(b));
 
     double x = NAN;
     x = -b / k;
@@ -77,8 +78,8 @@ double solveLinear (double k, double b) {
 }
 
 void rootsInAscendingOrder (double* x1, double* x2) {
-    assert(x1);
-    assert(x2);
+    MYASSERT(x1);
+    MYASSERT(x2);
 
     if(isnan(*x1) || isnan(*x2))
         return;

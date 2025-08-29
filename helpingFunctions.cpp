@@ -1,23 +1,24 @@
 #include <TXLib.h>
 #include <stdio.h>
-#include <assert.h>
 
+#include "colors.h"
+#include "myassert.h"
 #include "helpingFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
 
 const double EPSILON = 1e-10;
 
-void bufferCleaner (void) { //функция пропуска входных данных
+void bufferCleaner (void) { //the function of skipping input data
     int ch = 0;
     while ((ch = getchar()) != '\n')
         continue;
 }
 
 int compareDouble (double first, double second) {
-    if (isnan(first) && isnan(second))      //оба nan
+    if (isnan(first) && isnan(second))      //both numbers are nan
         return 1;
-    else if (isinf(first) && isinf(second))      //оба inf
+    else if (isinf(first) && isinf(second))      //both numbers are inf
         return 1;
     else {
         double fabsOfDifference = NAN;
@@ -30,7 +31,7 @@ int compareDouble (double first, double second) {
 }
 
 void initQuadratic (struct equation* quadratic) {
-    assert(quadratic);
+    MYASSERT(quadratic);
     *quadratic = {
         .arguments = {
             .a = NAN,

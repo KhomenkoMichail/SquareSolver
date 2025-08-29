@@ -15,12 +15,17 @@
 #include "inputFunctions.h"
 #include "structsAndEnum.h"
 
+//--test <path/to/file>
+// --help
+// --version
+// --
+
 int main (void) {
     struct equation quadratic;
 
-    testFromFileByBuffer (&quadratic);
-    testsFromFile (&quadratic);
-    testSolveSquare ();
+    dynamicBufferFileTests (&quadratic);
+    scanningFileTestsSolveSquare (&quadratic);
+    integratedTestSolveSquare ();
 
     int keepSolving = 1;
     while (keepSolving) {
@@ -38,7 +43,7 @@ int main (void) {
         requestToContinue (&keepSolving);
     }
 
-    printf ("%sThe program ended!%s\n",MAGENTA, RESET);
+    printf (MAGENTA "The program ended!\n" RESET);
     return 0;
 }
 

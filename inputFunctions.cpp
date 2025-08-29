@@ -1,13 +1,14 @@
 #include <TXLib.h>
 #include <stdio.h>
-#include <assert.h>
+
 
 #include "colors.h"
+#include "myassert.h"
 #include "structsAndEnum.h"
 #include "inputFunctions.h"
 
 void getArguments (struct equation* quadratic) {
-    assert(quadratic);
+    MYASSERT(quadratic);
 
     printf("Enter the coefficient  a:");
     quadratic->arguments.a = getDouble();
@@ -19,7 +20,7 @@ void getArguments (struct equation* quadratic) {
     quadratic->arguments.c = getDouble();
 }
 
-double getDouble (void) { //функция получения значения типа double
+double getDouble (void) {
     int ch = 0;
     double number = NAN;
     char ch1 = '\0';
@@ -29,8 +30,8 @@ double getDouble (void) { //функция получения значения �
         while ((ch = getchar()) != '\n')
             putchar (ch);
 
-        printf (" %sis not a number.%s\n"
-                "Enter a number like 3, 52.52, -8\n", RED, RESET);
+        printf (RED " is not a number.\n" RESET
+                "Enter a number like 3, 52.52, -8\n");
     }
     return number;
 }

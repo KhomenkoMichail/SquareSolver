@@ -1,17 +1,17 @@
 #include <TXLib.h>
 #include <stdio.h>
-#include <assert.h>
 
+#include "myassert.h"
 #include "colors.h"
 #include "testingFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
 #include "solvingFunctions.h"
 
-void testSolveSquare (void) {
+void integratedTestSolveSquare (void) {
     int failedTests = 0;
 
-    struct equation testingArguments [] = {      //заданные уравнения
+    struct equation testingArguments [] = {      //testing equations
       { { 0,  0,  0 }, { NAN, NAN, indefinityRoots } },
       { { 0,  2,  2 }, { NAN, NAN, indefinityRoots } },
       { { 0,  0,  2 }, { NAN, NAN, indefinityRoots } },
@@ -26,7 +26,7 @@ void testSolveSquare (void) {
 
     int testNum = sizeof (testingArguments) / sizeof (testingArguments[0]);
 
-    struct solution testSolutions[] = { { infinityRoots, NAN, NAN },   //ответы к заданным уравнениям
+    struct solution testSolutions[] = { { infinityRoots, NAN, NAN },   //solutions for testing equations
                                               { oneRoot,  -1, NAN },
                                               { noRoots, NAN, NAN },
                                               { twoRoots,  -1,  0 },
@@ -40,31 +40,33 @@ void testSolveSquare (void) {
     for (int test = 0; test < testNum; test++)
             failedTests += oneTest (&testingArguments[test], testSolutions[test]);
 
-    printf ("%sNumber of failed program tests  = %d%s\n\n", BLUE, failedTests, RESET);
+    printf (GREEN "Number of passed integrated tests = %d\n" RESET, testNum - failedTests);
+    printf (BLUE "Number of failed integrated tests  = %d\n\n" RESET, failedTests);
 }
 
 int oneTest (struct equation* testingArguments, struct solution testSolutions) {
-        assert(testingArguments);
+        MYASSERT(testingArguments);
 
         solveSquare(testingArguments);
 
         if (!(testingArguments->roots.nRoots == testSolutions.nAnswers &&
               (compareDouble(testingArguments->roots.x1, testSolutions.firstRoot) || compareDouble(testingArguments->roots.x1, testSolutions.secondRoot)) &&
               (compareDouble(testingArguments->roots.x2, testSolutions.secondRoot) || compareDouble(testingArguments->roots.x2, testSolutions.firstRoot)))) {
-            printf ("%sFAILED: solveSquare(%lg, %lg, %lg) --> nRoots = %d, x1 = %lg, x2 = %lg\n", RED,
+            printf (RED "FAILED: solveSquare(%lg, %lg, %lg) --> nRoots = %d, x1 = %lg, x2 = %lg\n",
                     testingArguments->arguments.a, testingArguments->arguments.b, testingArguments->arguments.c,
                     testingArguments->roots.nRoots, testingArguments->roots.x1, testingArguments->roots.x2);
-            printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n\n%s",
-                    testSolutions.nAnswers, testSolutions.firstRoot, testSolutions.secondRoot, RESET);
+            printf ("should be nRoots = %d, x1 = %lg, x2 = %lg\n\n" RESET,
+                    testSolutions.nAnswers, testSolutions.firstRoot, testSolutions.secondRoot);
             return 1;
         }
         return 0;
 }
 
-void testsFromFile (struct equation* quadratic) {
-    assert(quadratic);
+void scanningFileTestsSolveSquare (struct equation* quadratic) {
+    MYASSERT(quadratic);
 
     int failedFileTests = 0;
+    int passedFileTests = 0;
 
     initQuadratic (quadratic);
 
@@ -73,29 +75,32 @@ void testsFromFile (struct equation* quadratic) {
 
     FILE* file = fopen("tests.txt", "rb");
     if (file!= NULL) {
-        failedFileTests = readFromFileAndTest(quadratic, &fileSolution, file);
-        printf("%sNumber of failed file tests = %d\n%s", BLUE, failedFileTests, RESET);
+        failedFileTests = readFromFileAndTest(quadratic, &fileSolution, file, &passedFileTests);
+        printf (GREEN "Number of passed scanning file tests = %d\n" RESET, passedFileTests);
+        printf(BLUE "Number of failed scanning file tests = %d\n\n" RESET, failedFileTests);
         if (fclose(file) != 0)
-            printf("%sError: the file was not closed! Check the file tests.txt\n%s", RED, RESET);
+            printf(RED "Error: the file was not closed! Check the file tests.txt\n" RESET);
     }
-    else printf("%sError: the file was not opened! Check the file tests.txt\n%s", RED, RESET);
+    else printf(RED "Error: the file was not opened! Check the file tests.txt\n" RESET);
 }
 
 void initFileSolution (struct solution* fileSolution) {
-    assert(fileSolution);
+    MYASSERT(fileSolution);
 
     *fileSolution = { .nAnswers = indefinityRoots,
                       .firstRoot = NAN,
                       .secondRoot = NAN };
 }
 
-int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolution, FILE* file) {
-    assert(quadratic);
-    assert(fileSolution);
-    assert(file);
+int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolution, FILE* file, int* passedFileTests) {
+    MYASSERT(quadratic);
+    MYASSERT(fileSolution);
+    MYASSERT(file);
 
     int failedFileTests = 0;
+    int allTests = 0;
     while (fscanf (file, "%lf", &(quadratic->arguments.a)) == 1) {
+        allTests++;
         fscanf (file, "%lf", &(quadratic->arguments.b));
         fscanf (file, "%lf", &(quadratic->arguments.c));
         fscanf (file, "%d",  (int*) &fileSolution->nAnswers);
@@ -130,12 +135,16 @@ int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolutio
         initFileSolution (fileSolution);
         initQuadratic (quadratic);
     }
+*passedFileTests = allTests - failedFileTests;
 return failedFileTests;
 }
-void testFromFileByBuffer (struct equation* quadratic) {
-    assert(quadratic);
+
+void dynamicBufferFileTests (struct equation* quadratic) {
+    MYASSERT(quadratic);
 
     int failedFileTests = 0;
+    int passedFileTests = 0;
+
     initQuadratic (quadratic);
 
     struct solution fileSolution;
@@ -143,7 +152,7 @@ void testFromFileByBuffer (struct equation* quadratic) {
 
     FILE* file = fopen("tests.txt", "r");
     if  (file == NULL) {
-        printf("%sError: the file was not opened! Check the file tests.txt\n%s", RED, RESET);
+        printf(RED "Error: the file was not opened! Check the file tests.txt\n" RESET);
         return;
     }
 
@@ -154,18 +163,21 @@ void testFromFileByBuffer (struct equation* quadratic) {
     char* fileBuffer = (char*)calloc(lengthOfFile, sizeof(char));
     fread(fileBuffer, sizeof(char), lengthOfFile, file);
 
-    failedFileTests = readFromBufferAndTest(quadratic, &fileSolution, fileBuffer);
+    failedFileTests = readFromBufferAndTest(quadratic, &fileSolution, fileBuffer, &passedFileTests);
     free (fileBuffer);
-    printf("%sNumber of failed fileBuffer tests = %d\n%s", BLUE, failedFileTests, RESET);
+    printf (GREEN "Number of passed file dynamic buffer tests = %d\n" RESET, passedFileTests);
+    printf(BLUE "Number of failed file dynamic buffer tests = %d\n\n" RESET, failedFileTests);
     if (fclose(file) != 0)
-        printf("%sError: the file was not closed! Check the file tests.txt\n%s", RED, RESET);
+        printf(RED "Error: the file was not closed! Check the file tests.txt\n" RESET);
 }
-int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer) {
-    assert(quadratic);
-    assert(fileSolution);
-    assert(fileBuffer);
+int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer, int* passedFileTests) {
+    MYASSERT(quadratic);
+    MYASSERT(fileSolution);
+    MYASSERT(fileBuffer);
 
     int failedFileTests = 0;
+    int allTests = 0;
+
     int fileOffset = 0;
     int scannedSymbols = 0;
     int errorSscanf = 0;
@@ -208,6 +220,7 @@ int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolut
                 fileSolution->secondRoot = NAN;
                 break;
         }
+
         if (errorSscanf) {
             initQuadratic (quadratic);
             break;
@@ -215,7 +228,9 @@ int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolut
         failedFileTests += oneTest(quadratic, *fileSolution);
         initFileSolution (fileSolution);
         initQuadratic (quadratic);
+        allTests++;
     }
+    *passedFileTests = allTests - failedFileTests;
     return failedFileTests;
 }
 

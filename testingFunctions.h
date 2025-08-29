@@ -14,7 +14,7 @@
     \param Does not accept parameters.
     \return Returns nothing.
 */
-void testSolveSquare (void);
+void integratedTestSolveSquare (void);
 
 /*!
     \brief Makes one test of function "solveSquare".
@@ -32,7 +32,7 @@ int oneTest (struct equation* testingArguments, struct solution testSolutions);
     \param quadratic - a pointer to the equation structure which is filled with arguments from the file.
     \return Returns nothing.
 */
-void testsFromFile (struct equation* quadratic);
+void scanningFileTestsSolveSquare (struct equation* quadratic);
 
 /*!
     \brief Clears the solution structure.
@@ -54,9 +54,10 @@ void initFileSolution (struct solution* fileSolution);
     arguments from the file and passed to the function "solveSquare".
     \param fileSolution - a pointer to the solution structure which is filled with
     answers from the file and compares with answers from the function "solveSquare".
+    \param passedFileTests - a pointer to the passed tests counter.
     \return Returns a number of failed tests.
 */
-int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolution, FILE* file);
+int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolution, FILE* file, int* passedFileTests);
 
 /*!
     \brief Reads arguments of a quadratic equation and answers to it from the string.
@@ -66,9 +67,10 @@ int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolutio
     \param fileSolution - a pointer to the solution structure which is filled with
     answers from the string and compares with answers from the function "solveSquare".
     \param fileBuffer - a pointer to the string, which contains equation arguments and answers.
+    \param passedFileTests - a pointer to the passed tests counter.
     \return Returns a number of failed tests.
 */
-int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer);
+int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer, int* passedFileTests);
 
 /*!
     \brief Tests function "solveSquare".
@@ -80,6 +82,6 @@ int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolut
     arguments from the file and passed to the function "solveSquare".
     \return Returns nothing.
 */
-void testFromFileByBuffer (struct equation* quadratic);
+void dynamicBufferFileTests (struct equation* quadratic);
 
 #endif

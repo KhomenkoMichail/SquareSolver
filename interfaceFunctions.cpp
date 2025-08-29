@@ -1,21 +1,21 @@
 #include <TXLib.h>
 #include <stdio.h>
-#include <assert.h>
 
 #include "colors.h"
+#include "myassert.h"
 #include "interfaceFunctions.h"
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
 
 void introMessage (void) {
-    printf ("%sThis program is intended for solving quadratic equations such as:%s\n", MAGENTA, RESET);
-    printf (CYAN "ax^2 + bx + c = 0\n");
+    printf (MAGENTA "This program is intended for solving quadratic equations such as:\n" RESET);
+    printf (CYAN "ax^2 + bx + c = 0\n" RESET);
 }
 
 void announcementOfResults (struct equation quadratic) {
-    assert(isDouble(quadratic.arguments.a));
-    assert(isDouble(quadratic.arguments.b));
-    assert(isDouble(quadratic.arguments.c));
+    MYASSERT(isDouble(quadratic.arguments.a));
+    MYASSERT(isDouble(quadratic.arguments.b));
+    MYASSERT(isDouble(quadratic.arguments.c));
 
     printf ("Your equation:\n");
     printf ("%lgx^2%+lgx%+lg = 0\n", quadratic.arguments.a, quadratic.arguments.b, quadratic.arguments.c);
@@ -42,17 +42,17 @@ void announcementOfResults (struct equation quadratic) {
 
         case indefinityRoots:
         default:
-            printf ("%sError! Please, try again.\n%s", RED, RESET);
+            printf (RED "Error! Please, try again.\n" RESET);
             break;
     }
 }
 
 void requestToContinue (int* flag) {
-    assert (flag);
+    MYASSERT (flag);
     int ch = 0;
 
-    printf ("Enter %sany character%s to continue solving the equations ", GREEN, RESET);
-    printf ("or click %s[Enter]%s to end program.\n", RED, RESET);
+    printf (GREEN "Enter any character to continue solving the equations " RESET);
+    printf (RED "or click [Enter] to end program.\n" RESET);
 
     if ((ch = getchar()) == '\n')
         *flag = 0;
