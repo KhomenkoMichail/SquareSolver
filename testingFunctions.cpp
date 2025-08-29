@@ -62,7 +62,7 @@ int oneTest (struct equation* testingArguments, struct solution testSolutions) {
         return 0;
 }
 
-void scanningFileTestsSolveSquare (struct equation* quadratic) {
+void scanningFileTestsSolveSquare (struct equation* quadratic, const char* pathToFile) {
     MYASSERT(quadratic);
 
     int failedFileTests = 0;
@@ -73,7 +73,7 @@ void scanningFileTestsSolveSquare (struct equation* quadratic) {
     struct solution fileSolution;
     initFileSolution (&fileSolution);
 
-    FILE* file = fopen("tests.txt", "rb");
+    FILE* file = fopen(pathToFile, "rb");
     if (file!= NULL) {
         failedFileTests = readFromFileAndTest(quadratic, &fileSolution, file, &passedFileTests);
         printf (GREEN "Number of passed scanning file tests = %d\n" RESET, passedFileTests);
@@ -139,7 +139,7 @@ int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolutio
 return failedFileTests;
 }
 
-void dynamicBufferFileTests (struct equation* quadratic) {
+void dynamicBufferFileTests (struct equation* quadratic, const char* pathToFile) {
     MYASSERT(quadratic);
 
     int failedFileTests = 0;
@@ -150,7 +150,7 @@ void dynamicBufferFileTests (struct equation* quadratic) {
     struct solution fileSolution;
     initFileSolution (&fileSolution);
 
-    FILE* file = fopen("tests.txt", "r");
+    FILE* file = fopen(pathToFile, "r");
     if  (file == NULL) {
         printf(RED "Error: the file was not opened! Check the file tests.txt\n" RESET);
         return;

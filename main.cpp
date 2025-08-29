@@ -14,20 +14,20 @@
 #include "interfaceFunctions.h"
 #include "inputFunctions.h"
 #include "structsAndEnum.h"
+#include "commandLineFunctions.h"
 
-//--test <path/to/file>
-// --help
-// --version
-// --
+int main (int argc, char* argv[]) {
+    int keepSolving = processingCommandLineArguments (argc, argv);
 
-int main (void) {
     struct equation quadratic;
+    initQuadratic (&quadratic);
 
-    dynamicBufferFileTests (&quadratic);
-    scanningFileTestsSolveSquare (&quadratic);
-    integratedTestSolveSquare ();
+    if (keepSolving) {
+        dynamicBufferFileTests (&quadratic, "tests.txt");
+        scanningFileTestsSolveSquare (&quadratic, "tests.txt");
+        integratedTestSolveSquare ();
+    }
 
-    int keepSolving = 1;
     while (keepSolving) {
 
         initQuadratic (&quadratic);

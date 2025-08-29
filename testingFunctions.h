@@ -32,7 +32,7 @@ int oneTest (struct equation* testingArguments, struct solution testSolutions);
     \param quadratic - a pointer to the equation structure which is filled with arguments from the file.
     \return Returns nothing.
 */
-void scanningFileTestsSolveSquare (struct equation* quadratic);
+void scanningFileTestsSolveSquare (struct equation* quadratic, const char* pathToFile);
 
 /*!
     \brief Clears the solution structure.
@@ -82,6 +82,6 @@ int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolut
     arguments from the file and passed to the function "solveSquare".
     \return Returns nothing.
 */
-void dynamicBufferFileTests (struct equation* quadratic);
+void dynamicBufferFileTests (struct equation* quadratic, const char* pathToFile);
 
 #endif

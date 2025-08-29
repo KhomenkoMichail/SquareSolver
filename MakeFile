@@ -12,9 +12,13 @@ main.o: main.cpp
 	g++ $(CFLAGS) -c main.cpp
 testingFunctions.o: testingFunctions.cpp
 	g++ $(CFLAGS) -c testingFunctions.cpp
-SolveSquare.exe: helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o
-	g++ $(CFLAGS)  helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o -o SolveSquare
+commandLineFunctions.o: commandLineFunctions.cpp
+	g++ $(CFLAGS) -c commandLineFunctions.cpp
+SolveSquare.exe: helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o commandLineFunctions.o
+	g++ $(CFLAGS)  helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o commandLineFunctions.o -o SolveSquare
 clean:
-	rm helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o
+	rm helpingFunctions.o inputFunctions.o solvingFunctions.o interfaceFunctions.o main.o testingFunctions.o commandLineFunctions.o
+build: SolveSquare.exe
+
 run: SolveSquare.exe
 	./SolveSquare.exe
