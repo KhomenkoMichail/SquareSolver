@@ -7,8 +7,6 @@
 #include "helpingFunctions.h"
 #include "structsAndEnum.h"
 
-const double EPSILON = 1e-10;
-
 void bufferCleaner (void) { //the function of skipping input data
     int ch = 0;
     while ((ch = getchar()) != '\n')
@@ -16,6 +14,8 @@ void bufferCleaner (void) { //the function of skipping input data
 }
 
 int compareDouble (double first, double second) {
+    const double EPSILON = 1e-10;
+
     if (isnan(first) && isnan(second))      //both numbers are nan
         return 1;
     else if (isinf(first) && isinf(second))      //both numbers are inf

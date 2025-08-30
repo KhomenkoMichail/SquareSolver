@@ -24,18 +24,18 @@ int processingCommandLineArguments (int numberOfArguments, char* arguments[]) {
             else if (!strcmp(arguments[1], "--single"))
                 continueTheProgram = modeSingle();
             else
-                continueTheProgram = errorInput();
+                continueTheProgram = errorCommandLineInput();
             break;
 
         case 3:
             if (!strcmp(arguments[1], "--test"))
                 continueTheProgram = modeTest(arguments[2]);
             else
-                continueTheProgram = errorInput();
+                continueTheProgram = errorCommandLineInput();
             break;
 
         default:
-                continueTheProgram = errorInput();
+                continueTheProgram = errorCommandLineInput();
     }
     return continueTheProgram;
 }
@@ -82,7 +82,7 @@ int modeTest (char* pathToFile) {
     return 0;
 }
 
-int errorInput (void) {
+int errorCommandLineInput (void) {
     printf (RED "Input error, use only available modes:\n");
     printf ("--test pathToFile\n--help\n--version\n--single\n" RESET);
     return 0;

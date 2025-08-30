@@ -79,9 +79,9 @@ void scanningFileTestsSolveSquare (struct equation* quadratic, const char* pathT
         printf (GREEN "Number of passed scanning file tests = %d\n" RESET, passedFileTests);
         printf(BLUE "Number of failed scanning file tests = %d\n\n" RESET, failedFileTests);
         if (fclose(file) != 0)
-            printf(RED "Error: the file was not closed! Check the file tests.txt\n" RESET);
+            printf(RED "Error: the file was not closed! Check the file %s\n" RESET, pathToFile);
     }
-    else printf(RED "Error: the file was not opened! Check the file tests.txt\n" RESET);
+    else printf(RED "Error: the file was not opened! Check the file %s\n" RESET, pathToFile);
 }
 
 void initFileSolution (struct solution* fileSolution) {
@@ -115,17 +115,8 @@ int readFromFileAndTest(struct equation* quadratic, struct solution* fileSolutio
                 fscanf (file, "%lf", &fileSolution->secondRoot);
                 break;
             case infinityRoots:
-                fileSolution->firstRoot = NAN;
-                fileSolution->secondRoot = NAN;
-                break;
             case noRoots:
-                fileSolution->firstRoot = NAN;
-                fileSolution->secondRoot = NAN;
-                break;
             case indefinityRoots:
-                fileSolution->firstRoot = NAN;
-                fileSolution->secondRoot = NAN;
-                break;
             default:
                 fileSolution->firstRoot = NAN;
                 fileSolution->secondRoot = NAN;
@@ -152,7 +143,7 @@ void dynamicBufferFileTests (struct equation* quadratic, const char* pathToFile)
 
     FILE* file = fopen(pathToFile, "r");
     if  (file == NULL) {
-        printf(RED "Error: the file was not opened! Check the file tests.txt\n" RESET);
+        printf(RED "Error: the file was not opened! Check the file %s\n" RESET, pathToFile);
         return;
     }
 
@@ -164,11 +155,12 @@ void dynamicBufferFileTests (struct equation* quadratic, const char* pathToFile)
     fread(fileBuffer, sizeof(char), lengthOfFile, file);
 
     failedFileTests = readFromBufferAndTest(quadratic, &fileSolution, fileBuffer, &passedFileTests);
-    free (fileBuffer);
     printf (GREEN "Number of passed file dynamic buffer tests = %d\n" RESET, passedFileTests);
     printf(BLUE "Number of failed file dynamic buffer tests = %d\n\n" RESET, failedFileTests);
+
+    free (fileBuffer);
     if (fclose(file) != 0)
-        printf(RED "Error: the file was not closed! Check the file tests.txt\n" RESET);
+        printf(RED "Error: the file was not closed! Check the file %s\n" RESET, pathToFile);
 }
 int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolution, char* fileBuffer, int* passedFileTests) {
     MYASSERT(quadratic);
@@ -186,12 +178,15 @@ int readFromBufferAndTest(struct equation* quadratic, struct solution* fileSolut
         if (sscanf (fileBuffer+fileOffset, "%lf %n", &(quadratic->arguments.a), &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;
+
         if (sscanf (fileBuffer+fileOffset, "%lf %n" , &(quadratic->arguments.b), &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;
+
         if (sscanf (fileBuffer+fileOffset, "%lf %n", &(quadratic->arguments.c), &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;
+
         if (sscanf (fileBuffer+fileOffset, "%d %n",  (int*) &fileSolution->nAnswers, &scannedSymbols) != 1)
             errorSscanf = 1;
         fileOffset += scannedSymbols;

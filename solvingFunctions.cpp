@@ -83,6 +83,7 @@ void rootsInAscendingOrder (double* x1, double* x2) {
 
     if(isnan(*x1) || isnan(*x2))
         return;
+
     if(*x1 > *x2) {
         double cell = *x1;
         *x1 = *x2;
